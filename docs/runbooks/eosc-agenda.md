@@ -1,6 +1,6 @@
 # eOSC+ meetings and agenda
 
-Implemented increment: eOSC+ Plan 1 (foundation and agenda builder), 2026-10-29, on branch `feat/eosc-foundation` (not yet merged). Decision record: ADR-314. eOSC+ is core capability C10 inside iNDECS; screens are under `/osc`. This increment covers meetings, agenda items, papers and agenda publishing only. There is no map, decision panel, attendance or external attendee access yet (later plans).
+Implemented increment: eOSC+ Plan 1 (foundation and agenda builder), 2026-10-29, on branch `feat/eosc-foundation` (not yet merged). Decision record: ADR-314. eOSC+ is core capability C10 inside iNDECS; screens are under `/osc`. This increment covers meetings, agenda items, papers and agenda publishing only. The meeting map (Plan 2, ADR-315) is described in the section "Meeting map" below and in `gis-layers.md`; there is no decision panel, attendance or external attendee access yet (later plans).
 
 ## Deployment
 
@@ -122,3 +122,13 @@ Until Plan 4 (attendee access) ships, members, chairperson and presenters must b
 ## Validation
 
 `php artisan test` covers meetings, linked and standalone proposals, cut-offs, endorsement, accept/return, versioned publishing and changes, papers, visibility, closed-meeting refusals, sign-in for eOSC+-only staff and members, and cut-offs in Malaysian local time. Use the configured test database, never a production connection.
+
+## Meeting map
+
+Added by Plan 2 (branch `feat/eosc-map`, not yet merged). Setup, layer replication and the legacy import are in `docs/runbooks/gis-layers.md`; this section is the user guide.
+
+- **Open the map:** on a meeting page use the "Peta" button (`osc.meetings.map`). Anyone who can view the meeting can open it. It shows each agenda item's site over lot, zoning and utility layers, with past OSC decisions (MJKP) as points, and the item's layout plan placed on the map. Reference data is copied from MBSP ArcGIS and can be up to one refresh old; the map never calls ArcGIS itself.
+- **Site boundary:** the officer who registers the application draws the boundary on the registration page. Without a boundary the map falls back to the matched lot, or shows the item without a location.
+- **Layout plan:** a manager, the item's presenter or its proposer opens the item's layout page (`osc.layout.edit`), uploads a JPEG or PNG (up to 20 MB) and marks three reference points. The plan then appears in place on the map. Legacy plans from the old MJKP system were placed automatically where a world file existed.
+- **Basemap:** Esri imagery or street map, or the MBSP orthophoto once `ORTHOPHOTO_TILE_URL` is set. If imagery cannot load, a notice appears and the local layers keep working.
+- **Refresh layers:** managers see the last update time and status of each layer on `/osc` and can start a refresh with "Kemas kini lapisan". A queue worker must be running. Do this at least yearly.

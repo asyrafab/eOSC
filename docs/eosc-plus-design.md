@@ -2,7 +2,7 @@
 
 > Mirror copy. The canonical version is `C:\Users\Asyra\Documents\iNDECS\docs\eosc\README.md`; both are updated together.
 
-> **Status:** Design v1.1 **approved by the owner 2026-10-29** (builder check done). Plan 1 (foundation and agenda) built on branch `feat/eosc-foundation`, not yet merged. Next: Plan 2 (map).
+> **Status:** Design v1.1 **approved by the owner 2026-10-29** (builder check done). Plan 1 (foundation and agenda) built on branch `feat/eosc-foundation`, not yet merged. Plan 2 (map) built on branch `feat/eosc-map`, not yet merged. Next: Plan 3 (decision panel).
 > Owner: JTIK (builds). Operated by OSC, Jabatan Perancang Bandar and Jabatan Bangunan.
 > Decision records: ADR-212 (concurrent modules), ADR-213 (eOSC+ inside iNDECS) in `docs/bangunan/16-decision-log.md`.
 > Mirror copy: `C:\Users\Asyra\Documents\eOSC+\docs\eosc-plus-design.md`. Both are updated together.

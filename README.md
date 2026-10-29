@@ -20,4 +20,4 @@ copies. Both are updated together.
 | Plan | Status |
 |---|---|
 | 1. Foundation and agenda builder | Built on iNDECS branch `feat/eosc-foundation`, pending review |
-| 2. Map | Plan written; build next |
+| 2. Map | Built on iNDECS branch `feat/eosc-map`, pending review |
