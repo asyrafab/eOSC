@@ -7,7 +7,7 @@ Implemented increment: eOSC+ Plan 2 (map), 2026-10-29, on branch `feat/eosc-map`
 - The meeting map (`osc.meetings.map`) never calls ArcGIS. Lots, zoning and utilities are read from PostGIS and served as vector tiles (`gis.tiles`, zoom 12 to 22 only, throttled to 600 requests a minute per user). Agenda items, earlier tablings and past decisions come as GeoJSON from `osc.meetings.map-data`. Only the replication command talks to `spgis.mbsp.gov.my`.
 - Returned agenda items are not on the map. Items not yet accepted into the agenda (proposed or endorsed) are drawn muted and labelled with their status in the list and the popup.
 - An item with no drawn boundary, site boundary or matching lot, but with a positioned layout plan, is located by the plan's footprint (`geometry_source` `layout`).
-- Past-decision layout plans are drawn only from zoom 17, and each image is fetched only when it first comes into view at that zoom. Agenda item plans are drawn at every zoom.
+- Layout plans are not drawn by default. Selecting an application (agenda item or past decision) offers **Lihat pelan susun atur**; switching it on shows that application's plan only (switching on another replaces it), and its image is fetched only then.
 - Each layer is copied into a dated snapshot (`core.gis_layer_snapshots`). A layer points at its active snapshot. A failed import never replaces it, so the map keeps the last good copy.
 - Reference data can be up to one refresh old. The `/osc` page lists the last snapshot time per layer for managers (see "Refresh button").
 - Tiles are served only to active staff accounts that can reach eOSC+, Perancang PKM registration or a Bangunan workspace (`canUseGisTiles`); others get 403.
