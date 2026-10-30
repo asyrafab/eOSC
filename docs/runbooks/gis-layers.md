@@ -8,6 +8,7 @@ Implemented increment: eOSC+ Plan 2 (map), 2026-10-29, on branch `feat/eosc-map`
 - Returned agenda items are not on the map. Items not yet accepted into the agenda (proposed or endorsed) are drawn muted and labelled with their status in the list and the popup.
 - An item with no drawn boundary, site boundary or matching lot, but with a positioned layout plan, is located by the plan's footprint (`geometry_source` `layout`).
 - Layout plans are not drawn by default. Selecting an application (agenda item or past decision) offers **Lihat pelan susun atur**; switching it on shows that application's plan only (switching on another replaces it), and its image is fetched only then.
+- Every layer except the base maps (**Peta asas**: satellite imagery, street map, orthophoto) can be reordered in the layer list, by dragging its handle or with its up and down buttons; the list order is the drawing order. Base maps always stay underneath. The order resets when the page is reloaded.
 - Each layer is copied into a dated snapshot (`core.gis_layer_snapshots`). A layer points at its active snapshot. A failed import never replaces it, so the map keeps the last good copy.
 - Reference data can be up to one refresh old. The `/osc` page lists the last snapshot time per layer for managers (see "Refresh button").
 - Tiles are served only to active staff accounts that can reach eOSC+, Perancang PKM registration or a Bangunan workspace (`canUseGisTiles`); others get 403.
